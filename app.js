@@ -93,14 +93,14 @@ const backgroundImageModule = (() => {
   };
 })();
 
-const searchButton = document.getElementById('btn1');
+const searchForm = document.getElementById('search-form');
 
 function handleClick(e) {
   e.preventDefault();
   performSearch();
 }
 
-searchButton.addEventListener('click', handleClick);
+searchForm.addEventListener('submit', handleClick);
 
 const performSearch = async () => {
   try {
