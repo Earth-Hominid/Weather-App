@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App </title>
+    <meta
+      name="description"
+      content="A weather app utilizing a weather API."
+    />
+    <script src="app.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/289f35a1e7.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta name="robots" content="index, follow" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/289f35a1e7.js" crossorigin="anonymous"></script>
+  </head>
+  <nav>
+    <div class="content">
+      <div class="search">
+        <form>
+          <input
+          type="text"
+          id="search"
+          name="search"
+          class="search__input"
+          placeholder="Enter a city"
+          aria-label="search"
+          autocomplete="off"
+        /></form>
+        <button id="btn1" class="search__submit" aria-label="submit search">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <body>
+    <div class="weather-content" id="weather-content">
+      <div class="weather-card" id="weather-card">
+          <img id="element" src="">
+          <h1 id="city"></h1>
+            <h3 id="description"></h3>
+            <h3 id="feels"></h3>
+            <h3 id="humid"></h3>
+            <h3 id="pressure"></h3>
+            <h3 id="highlow"></h3>
+            <div class="temp-div">
+              <span id="temp" class="temp"></span>
+       </div>    
+      </div>
+  </body>
+</html>
