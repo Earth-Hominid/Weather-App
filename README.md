@@ -6,8 +6,8 @@ A one page weather app utilizing the Open Weather Map API.
 
 ### Acknowledgements
 
-- Icons from Graphic Designer Ashley Jager: (website)[http://www.ajager.com/#/weather-underground/].
+- Icons from Graphic Designer Ashley Jager: [website](http://www.ajager.com/#/weather-underground/).
 
-- Link to (Repo)[https://github.com/manifestinteractive/weather-underground-icons]
+- Link to [Repo](https://github.com/manifestinteractive/weather-underground-icons)
 
-- API (provider)[http://www.OpenWeatherMap.org]
+- API [provider](http://www.OpenWeatherMap.org)
