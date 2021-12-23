@@ -156,12 +156,17 @@ h2 {
   color: #545871;
 }
 
+.image-holder {
+  background-color: #f0f1f7;
+  height: 3em;
+  margin-top: 4px;
+}
+
 .weather-content {
   background: transparent;
   display: none;
   justify-content: space-around;
   align-items: center;
-  height: 60vh;
   font-size: 1.125em;
   line-height: 1.6;
   font-family: Roboto, serif;
@@ -221,7 +226,6 @@ h2 {
 }
 
 .temp-div {
-  background-color: #f0f1f7;
   color: #545871;
   font-family: Henriette, serif;
   width: 40vh;
