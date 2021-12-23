@@ -4,6 +4,10 @@
 
 A one page application utilizing Open Weather Map API.
 
+## Description
+
+Live (demo)[earth-hominid.github.io/weather-app/]
+
 ### Acknowledgements
 
 - Icons from Graphic Designer Ashley Jager, [website](http://www.ajager.com/#/weather-underground/).
