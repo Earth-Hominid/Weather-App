@@ -6,7 +6,7 @@ A one page application utilizing Open Weather Map API.
 
 ## Description
 
-Live (demo)[earth-hominid.github.io/weather-app/]
+Live [demo](earth-hominid.github.io/weather-app/)
 
 ### Acknowledgements
 
