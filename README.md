@@ -8,6 +8,8 @@ A one page application utilizing Open Weather Map API.
 
 Live [demo](earth-hominid.github.io/weather-app/)
 
+Functions developed using ES6 JavaScript and Async/Await to fetch API JSON data and dynamically render it.
+
 ### Acknowledgements
 
 - Icons from Graphic Designer Ashley Jager, [website](http://www.ajager.com/#/weather-underground/).
