@@ -1,6 +1,6 @@
 const dom = (() => {
   const bodyBackground = document.body;
-  const searchButton = document.getElementById('btn1');
+  const searchForm = document.getElementById('search-form');
   const city = document.getElementById('city');
   const temp = document.getElementById('temp');
   const description = document.getElementById('description');
@@ -11,7 +11,7 @@ const dom = (() => {
   const weatherContent = document.getElementById('weather-content');
   const iconElement = document.getElementById('element');
 
-  const searchActivated = searchButton.addEventListener('click', handleClick);
+  const searchActivated = searchForm.addEventListener('submit', handleClick);
 
   const nightArr = ['01n', '02n', '03n', '04n', '09n', '10n', '11n', '13n'];
   const dayArr = [
@@ -28,7 +28,7 @@ const dom = (() => {
 
   return {
     bodyBackground,
-    searchButton,
+    searchForm,
     city,
     temp,
     description,
@@ -93,24 +93,106 @@ const backgroundImageModule = (() => {
   };
 })();
 
-const searchForm = document.getElementById('search-form');
-
 function handleClick(e) {
   e.preventDefault();
-  performSearch();
+  startSearch();
 }
 
-searchForm.addEventListener('submit', handleClick);
+function startSearch(event) {
+  // Obtain city entered by user in input field:
+  const cityInput = document.getElementById('search').value;
+  const endUrl = cityInput + '&appid=' + 'eca710e0599278a67e7249f96e68a66b';
+  const unitsMetric = '&units=metric';
+  // base API url:
+  const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
+  // if input provided is not correct input, stop executing:
+  if (cityInput === null || cityInput === '') return;
+  // otherwise, append user input to the base url"
+  const searchUrl = baseUrl + endUrl + unitsMetric;
+  performSearch(searchUrl);
+}
 
-const performSearch = async () => {
+const performSearch = async (searchUrl) => {
   try {
-    const response = await fetch(
-      'https://api.openweathermap.org/data/2.5/weather?q=london&appid=eca710e0599278a67e7249f96e68a66b',
-      { mode: 'cors' }
-    );
+    const response = await fetch(searchUrl, { mode: 'cors' });
     const data = await response.json();
     console.log(data);
+
+    const displayWeather = (() => {
+      dom.temp.textContent = Math.round(data.main.temp);
+      dom.city.textContent = data.name;
+      dom.description.textContent = data.weather[0].description;
+      dom.humid.textContent = data.main.humidity + '%' + ' humidity';
+      dom.pressure.textContent = data.main.pressure + ' hPa';
+      dom.highlow.textContent =
+        'H' +
+        ' ' +
+        Math.round(data.main.temp_max) +
+        ' • ' +
+        'C ' +
+        Math.round(data.main.temp_min);
+      dom.feels.textContent =
+        'feels like: ' + Math.round(data.main.feels_like) + '°';
+      dom.iconElement.src = `images/${data.weather[0].icon}.png`;
+      dom.weatherContent.style.display = 'flex';
+    })();
+
+    const isNight = (() => {
+      let iconCode = data.weather[0].icon;
+
+      if (nightArr.includes(iconCode)) {
+        dom.bodyBackground.style.backgroundImage = backgroundImageModule.night;
+      } else {
+        dom.bodyBackground.style.backgroundImage = backgroundImageModule.day;
+      }
+      console.log(nightArr.includes(iconCode));
+    })();
+
+    const getCountry = (() => {
+      let country = data.sys.country;
+      console.log(country);
+    })();
+
+    //const weatherInfo = handleResult(data)
+    //display(weatherInfo)
+    // resetForm()
+    return data;
   } catch (err) {
     console.log(err);
   }
 };
+
+const nightIconArr = [
+  { warm: ['01n', '02n'] },
+  { cloud: ['03n', '04n'] },
+  { rain: ['09n', '10n'] },
+  { lightning: ['11n'] },
+  { snow: ['13n'] },
+  { mist: ['50n'] },
+];
+
+const dayIconArr = [
+  { warm: ['01d', '02d'] },
+  { cloud: ['03d', '04d'] },
+  { rain: ['09d', '10d'] },
+  { lightning: ['11d'] },
+  { snow: ['13d'] },
+  { mist: ['50d'] },
+];
+const nightArr = ['01n', '02n', '03n', '04n', '09n', '10n', '11n', '13n'];
+
+const dayArr = [
+  { a: '01d' },
+  { b: '02d' },
+  { c: '03d' },
+  { d: '04d' },
+  { e: '04n' },
+  { f: '09n' },
+  { g: '10n' },
+  { h: '11n' },
+  { i: '13n' },
+];
+
+function resetForm() {
+  form.reset();
+}
