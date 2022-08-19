@@ -4,8 +4,6 @@
 
 A one page application utilizing Open Weather Map API and written in Vanilla JavaScript.
 
-<img width="966" alt="weather-2" src="https://user-images.githubusercontent.com/66766688/185662357-b071ff7e-30a7-435f-b792-453c7527c67c.png">
-
 <img width="963" alt="weather-1" src="https://user-images.githubusercontent.com/66766688/185662386-93d88a9a-c948-40a7-bcb7-2cde844c2427.png">
 
 ## Description
